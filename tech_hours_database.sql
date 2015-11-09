@@ -13,7 +13,7 @@ UPDATE users SET active = 1 WHERE user_id = sp_user_id$$
 DELIMITER ;
 
 DELIMITER $$
-CREATE PROCEDURE `spAdminCreateJob`(IN `sp_location` VARCHAR(16), IN `sp_job` VARCHAR(32), IN `sp_account` VARCHAR(16), IN `sp_rate` DECIMAL, IN `sp_flat` INT(1))
+CREATE PROCEDURE `spAdminCreateJob`(IN `sp_location` VARCHAR(16), IN `sp_job` VARCHAR(32), IN `sp_account` VARCHAR(16), IN `sp_rate` DECIMAL(11,2), IN `sp_flat` INT(1))
     NO SQL
 BEGIN
   
@@ -90,7 +90,7 @@ ORDER BY active DESC, access, username$$
 DELIMITER ;
 
 DELIMITER $$
-CREATE PROCEDURE `spAdminUpdateJob`(IN `sp_job_id` INT, IN `sp_location` VARCHAR(16), IN `sp_job` VARCHAR(32), IN `sp_account` VARCHAR(16), IN `sp_rate` DECIMAL)
+CREATE PROCEDURE `spAdminUpdateJob`(IN `sp_job_id` INT, IN `sp_location` VARCHAR(16), IN `sp_job` VARCHAR(32), IN `sp_account` VARCHAR(16), IN `sp_rate` DECIMAL(11,2))
     NO SQL
 UPDATE jobs SET
   location = sp_location,
